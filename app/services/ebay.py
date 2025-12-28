@@ -13,7 +13,8 @@ def FetchSoldListingsService(ebay_api_client, user_id, card_name, start_date, en
     Returns:
     list: A list of sold listings.
     """
-    sold_listings = []
+    soldlistings = []
+    activelistings = []
     page_number = 1
     has_more_pages = True
 
@@ -25,9 +26,9 @@ def FetchSoldListingsService(ebay_api_client, user_id, card_name, start_date, en
             page_number=page_number
         )
 
-        sold_listings.extend(response['listings'])
+        soldlistings.extend(response['listings'])
 
         has_more_pages = response['has_more_pages']
         page_number += 1
 
-    return sold_listings
+    return soldlistings
