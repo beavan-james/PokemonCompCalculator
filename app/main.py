@@ -13,3 +13,5 @@ def get_price(card_name: str):
     listings = fetch_sold_listings(card_name)
     result = calculate_market_price(listings)
     return result
+
+store
