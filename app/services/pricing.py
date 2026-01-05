@@ -5,11 +5,11 @@ def PricingService(soldlistings, activelistings, fee = 1):
    min = soldlistings[0]
    max = soldlistings[-1]
    avg = sum(soldlistings) / len(soldlistings)
+   median = soldlistings[len(soldlistings)//2]
    price=0
-   activeavg = sum(activelistings) / len(activelistings)
-   if activeavg > avg:
+   if median > avg:
          trend = "Stable"
-   elif activeavg < avg:
+   elif median < avg:
          trend = "Falling"
    price = pricecalc(avg, trend, fee)
    return price

@@ -14,4 +14,3 @@ def get_price(card_name: str):
     result = calculate_market_price(listings)
     return result
 
-store
