@@ -1,6 +1,6 @@
 #Pricing Service
 #Fee is a multiplier for how much the user wants to pay based on the comp e.g. 70% of avg comps
-def PricingService(soldlistings, activelistings, fee = 1):
+def PricingService(soldlistings, fee = 1):
    soldlistings = soldlistings.sort()
    min = soldlistings[0]
    max = soldlistings[-1]
