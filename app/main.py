@@ -16,3 +16,5 @@ def get_price(card_name: str, fee: float = 1):
     price = calculate_market_price(listings, fee)
     result = compute_response(card_name, price)
     return result
+
+#test
