@@ -12,9 +12,8 @@ def service_fetch_listings(card_name: str):
 
 @app.get("/PricingService")
 def get_price(card_name: str, fee: float = 1):
+    card_name = card_name.lower()
     listings = fetch_sold_listings(card_name)
     price = calculate_market_price(listings, fee)
     result = compute_response(card_name, price)
     return result
-
-#test
