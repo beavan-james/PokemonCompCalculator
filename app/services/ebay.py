@@ -4,7 +4,7 @@ import requests
 EBAY_APP_ID = "YOUR_EBAY_APP_ID"  # from developer.ebay.com
 
 
-def fetch_sold_listings(card_name):
+def fetch_sold_listings(card_name, limit=25):
     url = "https://svcs.ebay.com/services/search/FindingService/v1"
     headers = {"X-EBAY-SOA-OPERATION-NAME": "findCompletedItems"}
     params = {
@@ -29,12 +29,12 @@ def fetch_sold_listings(card_name):
         # Navigate: findCompletedItemsResponse -> searchResult -> item
         search_result = data.get('findCompletedItemsResponse', [{}])[0].get('searchResult', [{}])[0]
         items = search_result.get('item', [])
-        
-        for item in items:
-            # Extract price: sellingStatus -> currentPrice -> __value__
-            price_str = item.get('sellingStatus', [{}])[0].get('currentPrice', [{}])[0].get('__value__')
-            if price_str:
-                soldlistings.append(float(price_str))
+        while len(soldlistings) < limit:
+            for item in items:
+                # Extract price: sellingStatus -> currentPrice -> __value__
+                price_str = item.get('sellingStatus', [{}])[0].get('currentPrice', [{}])[0].get('__value__')
+                if price_str:
+                    soldlistings.append(float(price_str))
     except (IndexError, ValueError, KeyError):
         pass # Return empty list if parsing fails
         
