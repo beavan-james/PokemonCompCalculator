@@ -1,7 +1,7 @@
 def card_statistics(soldlistings):
    soldlistings.sort() # sort() is in-place, do not assign it to the variable
-   min = soldlistings[0]
-   max = soldlistings[-1]
+   min_price = soldlistings[0]
+   max_price = soldlistings[-1]
    avg = sum(soldlistings) / len(soldlistings)
    median = soldlistings[len(soldlistings)//2]
    price=0
@@ -10,4 +10,4 @@ def card_statistics(soldlistings):
          trend = "Stable"
    elif median < avg:
          trend = "Falling"
-   return {"message": "Statistics calculated", "min": min, "max": max, "mean": avg, "trend": trend}
+   return {"message": "Statistics calculated", "min": min_price, "max": max_price, "mean": avg, "trend": trend}
