@@ -2,13 +2,15 @@ from fastapi import FastAPI
 from app.services.ebay import fetch_sold_listings
 from app.services.pricing import calculate_market_price
 from app.models.price import compute_response
+from app.services.cardinfo import card_statistics
 
 app = FastAPI(title="Pokemon Card Price Comparator")
 
-@app.get("/FetchSoldListingsService")
-def service_fetch_listings(card_name: str):
+@app.get("/CardInformationService")
+def card_info(card_name: str):
     listings = fetch_sold_listings(card_name)
-    return {"listings": listings}
+    response = card_statistics(listings)
+    return response
 
 @app.get("/PricingService")
 def get_price(card_name: str, fee: float = 1):
