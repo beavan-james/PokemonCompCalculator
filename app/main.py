@@ -8,6 +8,8 @@ from app.services.cardinfo import card_statistics
 
 app = FastAPI(title="Pokemon Card Price Comparator")
 
+#For API test use /#Docs endpoint
+
 class CardInfoResponse(BaseModel):
     message: str
     min: float
