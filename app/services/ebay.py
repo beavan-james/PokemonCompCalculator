@@ -3,7 +3,7 @@ import requests
 
 EBAY_APP_ID = "YOUR_EBAY_APP_ID"  # from developer.ebay.com
 
-# Search ebay for sold listings of a given card name. Get metadata including sold price.
+# Search ebay for sold listings of a given card name. Get metadata including sold price and dates.
 
 
 def fetch_sold_listings(card_name, limit=25):
