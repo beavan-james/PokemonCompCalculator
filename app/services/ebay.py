@@ -1,7 +1,7 @@
 #FetchSoldListingsService.py
 import requests
 
-EBAY_APP_ID = "YOUR_EBAY_APP_ID"  # from developer.ebay.com
+EBAY_APP_ID = "JamesBea-PokemonC-PRD-5b4727c1d-99cbed08"  # Need to convert to secret later
 
 # Search ebay for sold listings of a given card name. Get metadata including sold price and dates.
 
